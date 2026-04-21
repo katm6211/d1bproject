@@ -10,15 +10,15 @@
     {
         preload ()
         {
-            this.load.setBaseURL('https://labs.phaser.io');
+            this.load.setBaseURL('https://katm6211.github.io/d1bproject/');
 
-            this.load.image('sky', 'assets/skies/space3.png');
-            this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-            this.load.image('red', 'assets/particles/red.png');
+            this.load.image('cathedral', 'assets/title/cathedral.png');
         }
 
         create() {
-            const text = this.add.text(0, 600, 'Hello world', { fontSize: '32px', fill: '#000' });
+            this.add.image(400, 300, 'cathedral');
+}
+            //const text = this.add.text(0, 600, 'Hello world', { fontSize: '32px', fill: '#000' });
 
             /*this.tweens.add({
                 targets: text,
