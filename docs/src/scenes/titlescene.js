@@ -25,28 +25,14 @@ class TitleScene extends Phaser.Scene
             titletext.setScale(0.5, 0.5); 
             this.cameras.main.fadeIn(5000, 0, 0, 0);
 
-            //const text = this.add.text(0, 600, 'Hello world', { fontSize: '32px', fill: '#000' });
+            this.time.delayedCall(8000, () => {
+                this.cameras.main.fadeOut(1000, 0, 0, 0);
+            }, [], this);
 
-            /*this.tweens.add({
-                targets: text,
-                x: 800,
-                y: 0,
-                alpha: 0,
-                duration: 5000,
-                ease: 'Linear',
-                repeat: -1 
+            this.cameras.main.once('camerafadeoutcomplete', (camera) => {
+                this.scene.start('Slide1');
             });
-            const graphics2 = this.add.graphics();
-            graphics2.fillStyle(0xff0000, 1); 
-            graphics2.fillCircle(200, 200, 60); 
 
-            const graphics1 = this.add.graphics();
-            graphics1.fillStyle(0xffffff, 1); 
-            graphics1.fillCircle(200, 200, 40); 
-
-            const graphics = this.add.graphics();
-            graphics.fillStyle(0xff0000, 1); 
-            graphics.fillCircle(200, 200, 20); */
 
 
         }
