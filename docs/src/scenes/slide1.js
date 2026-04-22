@@ -34,7 +34,8 @@ class Slide1 extends Phaser.Scene
                     ease: 'Linear',
                     repeat: 0,
                     onComplete: () => {
-                    const flame = this.add.image(width*5/8, height*5/8).setAlpha(0);
+                        const flame = this.add.image(width*5/8, height*5/8).setAlpha(0);
+                        flame.setScale(0.3);
                         this.tweens.add({
                             targets: flame,
                             alpha: 1,
