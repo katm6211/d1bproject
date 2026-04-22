@@ -1,5 +1,9 @@
 class TitleScene extends Phaser.Scene
     {
+        constructor()
+        {
+            super({ key: "TitleScene" });
+        }
         preload ()
         {
             this.load.setBaseURL('https://katm6211.github.io/d1bproject/');
@@ -25,8 +29,8 @@ class TitleScene extends Phaser.Scene
             titletext.setScale(0.5, 0.5); 
             this.cameras.main.fadeIn(5000, 0, 0, 0);
 
-            this.time.delayedCall(8000, () => {
-                this.cameras.main.fadeOut(1000, 0, 0, 0);
+            this.time.delayedCall(10000, () => {
+                this.cameras.main.fadeOut(3500, 0, 0, 0);
             }, [], this);
 
             this.cameras.main.once('camerafadeoutcomplete', (camera) => {
