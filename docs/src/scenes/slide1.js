@@ -19,10 +19,10 @@ class Slide1 extends Phaser.Scene
 
         create() {
             const {width, height} = this.scale;
-            const border = this.add.image(width/6, height/2, 'border');
-            border.setDisplaySize(width/3, height); 
-            const arthur = this.add.image(400, 470, 'arthur');
-            arthur.setScale(0.5, 0.5); 
+            const border = this.add.image(width/4, height/2, 'border');
+            border.setDisplaySize(width/2, height); 
+            const arthur = this.add.image(width/4, height/2, 'arthur');
+            arthur.setScale(0.45); 
 
             this.time.delayedCall(10000, () => {
                 const dragon = this.add.image(800, 0, 'dragon');
@@ -31,7 +31,7 @@ class Slide1 extends Phaser.Scene
                     x: 600,
                     y: 100,
                     alpha: 0,
-                    duration: 5000,
+                    duration: 10000,
                     ease: 'Linear',
                     repeat: 0 
                 });
