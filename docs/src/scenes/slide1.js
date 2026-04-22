@@ -5,7 +5,7 @@ class Slide1 extends Phaser.Scene {
     preload() {
         const { width, height } = this.scale;
         let loadingText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Loading... 0%', {
-            font: '20px Arial',
+            font: '20px Consolas',
             fill: '#ffffff'
         }).setOrigin(0.5);
 
@@ -15,14 +15,17 @@ class Slide1 extends Phaser.Scene {
         });
         this.load.on('complete', (value) => {
             loadingText.destroy();
+            circles.forEach((circle, index) => {
+                circle.destroy();
+            });
         });
-        const x = 400;
-        const r = 30;
+        const r = 50;
         const color = 0xffffff;
 
-        const circle1 = this.add.circle(x, 200, r, color, 0);
-        const circle2 = this.add.circle(x, 280, r, color, 0);
-        const circle3 = this.add.circle(x, 360, r, color, 0);
+        const circle1 = this.add.circle(200, 200, r, color, 1).setAlpha(0);
+        const circle2 = this.add.circle(400, 200, r, color, 1).setAlpha(0);
+        const circle3 = this.add.circle(600, 200, r, color, 1).setAlpha(0);
+
 
         const circles = [circle1, circle2, circle3];
 
@@ -32,7 +35,9 @@ class Slide1 extends Phaser.Scene {
                 alpha: 1,
                 duration: 1000,
                 delay: index * 300,
-                ease: 'Linear'
+                ease: 'Power1',
+                yoyo: true,
+                loop: -1
             });
         });
 
