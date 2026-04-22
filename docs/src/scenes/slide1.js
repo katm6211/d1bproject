@@ -7,25 +7,25 @@ class Slide1 extends Phaser.Scene
         preload ()
         {
             this.load.setBaseURL('https://katm6211.github.io/d1bproject/');
-            this.load.image('arthur', 'assets/title/arthur.png');
-            this.load.image('border', 'assets/title/border.png')
-            this.load.image('dragon', 'assets/title/dragon.png');
-            this.load.image('flame', 'assets/title/flame.png');
-            this.load.image('text1', 'assets/title/text1.png');
-            this.load.image('text2', 'assets/title/text2.png');
+            this.load.image('arthur', 'assets/slide1/arthur.png');
+            this.load.image('border', 'assets/slide1/border.png')
+            this.load.image('dragon', 'assets/slide1/dragon.png');
+            this.load.image('flame', 'assets/slide1/flame.png');
+            this.load.image('text1', 'assets/slide1/text1.png');
+            this.load.image('text2', 'assets/slide1/text2.png');
 
 
         }
 
         create() {
-            
-            const border = this.add.image(400, 470, 'border');
-            arthur.setScale(0.5, 0.5); 
+            const {width, height} = this.scale;
+            const border = this.add.image(width/6, height/2, 'border');
+            border.setDisplaySize(width/3, height); 
             const arthur = this.add.image(400, 470, 'arthur');
-            this.cameras.main.fadeIn(5000, 0, 0, 0);
+            arthur.setScale(0.5, 0.5); 
 
-            const dragon = this.add.image(800, 0, 'dragon');
             this.time.delayedCall(10000, () => {
+                const dragon = this.add.image(800, 0, 'dragon');
                 this.tweens.add({
                     targets: dragon,
                     x: 600,
@@ -38,7 +38,7 @@ class Slide1 extends Phaser.Scene
             }, [], this);
 
             this.cameras.main.setBackgroundColor("#e0dbc7");
-            this.cameras.main.fadeIn(5000, 0, 0, 0);
+            this.cameras.main.fadeIn(2000, 0, 0, 0);
 
 
  
