@@ -3,6 +3,43 @@ class Slide1 extends Phaser.Scene {
         super({ key: "Slide1" });
     }
     preload() {
+        const { width, height } = this.scale;
+        let loadingText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Loading... 0%', {
+            font: '20px Arial',
+            fill: '#ffffff'
+        }).setOrigin(0.5);
+
+        this.load.on('progress', (value) => {
+            let percentage = Math.floor(value * 100);
+            loadingText.setText(`Loading... ${percentage}%`);
+        });
+        this.load.on('complete', (value) => {
+            loadingText.destroy();
+        });
+        const x = 400;
+        const r = 30;
+        const color = 0xffffff;
+
+        const circle1 = this.add.circle(x, 200, r, color, 0);
+        const circle2 = this.add.circle(x, 280, r, color, 0);
+        const circle3 = this.add.circle(x, 360, r, color, 0);
+
+        const circles = [circle1, circle2, circle3];
+
+        circles.forEach((circle, index) => {
+            this.tweens.add({
+                targets: circle,
+                alpha: 1,
+                duration: 1000,
+                delay: index * 300,
+                ease: 'Linear'
+            });
+        });
+
+        this.load.on('fileprogress', (file) => {
+            console.log('Loading asset: ' + file.key);
+        });
+
         this.load.setBaseURL('https://katm6211.github.io/d1bproject/');
         this.load.image('arthur', 'assets/slide1/arthur.png');
         this.load.image('border', 'assets/slide1/border.png')
@@ -64,10 +101,9 @@ class Slide1 extends Phaser.Scene {
         this.cameras.main.setBackgroundColor("#e0dbc7");
         this.cameras.main.fadeIn(2000, 0, 0, 0);
 
-        if (!this.sound.get('bgm')) {
-            let bgm = this.sound.add('bgm', { loop: true });
+        if (!this.game.sound.get('bgm')) {
+            const bgm = this.game.sound.add('bgm', { loop: true });
             bgm.play();
-            this.game.sound.add(bgm);
         }
 
     }

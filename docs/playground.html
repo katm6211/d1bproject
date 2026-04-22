@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        class Playground extends Phaser.Scene {
+            constructor() {
+                super({ key: "Playground" });
+            }
+            preload() {
+
+              /*  const x = 400;
+                const r = 30;
+                const color = 0xffffff;
+
+                const circle1 = this.add.circle(x, 200, r, color, 0);
+                const circle2 = this.add.circle(x, 280, r, color, 0);
+                const circle3 = this.add.circle(x, 360, r, color, 0);
+
+                const circles = [circle1, circle2, circle3];
+
+                circles.forEach((circle, index) => {
+                    this.tweens.add({
+                        targets: circle,
+                        alpha: 1,
+                        duration: 1000,
+                        delay: index * 300,
+                        ease: 'Linear'
+                    });
+                });*/
+
+
+            }
+
+            create() {
+                const x = 400;
+                const r = 100;
+                const color = 0xffffff;
+
+                const circle1 = this.add.circle(x, 200, r, color, 0);
+                const circle2 = this.add.circle(x, 280, r, color, 0);
+                const circle3 = this.add.circle(x, 360, r, color, 0);
+
+                const circles = [circle1, circle2, circle3];
+
+                circles.forEach((circle, index) => {
+                    this.tweens.add({
+                        targets: circle,
+                        alpha: 1,
+                        duration: 1000,
+                        delay: index * 300,
+                        ease: 'Linear'
+                    });
+                });
+
+            }
+        }
+        const config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            backgroundColor: '#000000',
+            scene: [Playground]
+        };
+
+        const game = new Phaser.Game(config);
+    </script>
+
+</body>
+
+</html>
