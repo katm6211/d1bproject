@@ -8,13 +8,14 @@
     <script src="src/scenes/slide1.js"></script>
     <script src="src/scenes/slide2.js"></script>
     <script src="src/scenes/slide3.js"></script>
+    <script src="src/scenes/slide4.js"></script>
     <script>
     const config = {
         type: Phaser.AUTO,
         width: 800,
         height: 600,
         backgroundColor: '#000000',
-        scene: [Slide3, Slide2, Slide1, TitleScene]
+        scene: [Slide4, Slide3, Slide2, Slide1, TitleScene]
     };
 
     const game = new Phaser.Game(config);
