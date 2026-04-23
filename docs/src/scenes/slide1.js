@@ -52,7 +52,7 @@ class Slide1 extends Phaser.Scene {
         this.load.image('flame', 'assets/slide1/flame.png');
         this.load.image('text1', 'assets/slide1/text1.png');
         this.load.image('text2', 'assets/slide1/text2.png');
-        //    this.load.audio('bgm', 'assets/backgroundmusic.mp3');
+        this.load.audio('bgm', 'assets/backgroundmusic.mp3');
         this.load.image('text1_2', 'assets/slide1/phase2/text1.2.png');
         this.load.image('text2_2', 'assets/slide1/phase2/text2.2.png');
         this.load.image('rabbit', 'assets/slide1/phase2/rabbit.png');
