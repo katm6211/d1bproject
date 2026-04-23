@@ -51,7 +51,7 @@ class Slide4 extends Phaser.Scene {
                 },
                 {
                     targets: credits,
-                    y: 350, 
+                    y: 350,
                     x: 500,
                     duration: 10000,
                     ease: 'Linear',
@@ -67,8 +67,16 @@ class Slide4 extends Phaser.Scene {
 
 
 
-        let bg = this.add.image(0, 0, 'bg').setOrigin(0, 0);
-        bg.setDisplaySize(this.sys.game.config.width, this.sys.game.config.height);
+        let bg = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'bg');
+
+
+        let scaleX = this.cameras.main.width / bg.width;
+        let scaleY = this.cameras.main.height / bg.height;
+
+
+        let scale = Math.max(scaleX, scaleY);
+
+        bg.setScale(scale).setScrollFactor(0);
         this.cameras.main.setBackgroundColor("#e0dbc7");
         this.cameras.main.fadeIn(2000, 0, 0, 0);
     }
