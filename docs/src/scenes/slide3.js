@@ -15,13 +15,13 @@ class Slide3 extends Phaser.Scene {
 
     create() {
         const { width, height } = this.scale;
-        const demon1 = this.add.image(width * 7/8, -100, 'demon1').setScale(0.9);
-        const demon2 = this.add.image(width * 1/8, -600, 'demon2').setScale(0.9);
+        const demon1 = this.add.image(width * 7 / 8, -100, 'demon1').setScale(0.9);
+        const demon2 = this.add.image(width * 1 / 8, -600, 'demon2').setScale(0.9);
         const demon3 = this.add.image(width * 2 / 8, height * 5 / 8, 'demon3').setAlpha(0).setScale(0.9);
         const demon4 = this.add.image(width * 3 / 8, height * 3 / 8, 'demon4').setAlpha(0).setScale(0.9);
         const demon5 = this.add.image(width * 4 / 8, height * 5 / 8, 'demon5').setAlpha(0).setScale(0.9);
         const demon6 = this.add.image(width * 5 / 8, height * 3 / 8, 'demon6').setAlpha(0).setScale(0.9);
-        const drop = '+='+(width+demon2.displayHeight/2+Math.abs(demon2.y));
+        const drop = '+=' + (width + demon2.displayHeight / 2 + Math.abs(demon2.y));
         this.tweens.chain({
             tweens: [
 
@@ -55,7 +55,11 @@ class Slide3 extends Phaser.Scene {
                     targets: demon6,
                     alpha: 1,
                     duration: 2000,
-                    ease: 'Power2'
+                    ease: 'Power2',
+                    onComplete: () => {
+                        this.scene.start('Slide4');
+                    }
+
                 }
 
             ]
@@ -70,8 +74,7 @@ class Slide3 extends Phaser.Scene {
 
         this.cameras.main.setBackgroundColor("#e0dbc7");
         this.cameras.main.fadeIn(2000, 0, 0, 0);
-        this.cameras.main.once('camerafadeoutcomplete', (camera) => {
-            this.scene.start('Slide4');
-        });
+
+
     }
 }

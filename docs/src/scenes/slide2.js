@@ -52,7 +52,11 @@ class Slide2 extends Phaser.Scene {
                     targets: cat3,
                     alpha: 1,
                     duration: 2000,
-                    ease: 'Power2'
+                    ease: 'Power2',
+                    onComplete: () => {
+                        this.scene.start('Slide3');
+                    }
+
                 }
 
             ]
@@ -67,8 +71,7 @@ class Slide2 extends Phaser.Scene {
 
         this.cameras.main.setBackgroundColor("#e0dbc7");
         this.cameras.main.fadeIn(2000, 0, 0, 0);
-        this.cameras.main.once('camerafadeoutcomplete', (camera) => {
-            this.scene.start('Slide3');
-        });
-    }
+
+
+}
 }
