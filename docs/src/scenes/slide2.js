@@ -14,7 +14,10 @@ class Slide2 extends Phaser.Scene {
 
     create() {
         const border = this.add.image(width * 5 / 8, height * 3 / 8, 'border').setAlpha(0).setScale(0.3);
-        
+        const text1_3 = this.add.image(width * 5 / 8, height * 3 / 8, 'text1_3').setAlpha(0).setScale(0.3);
+        const cat1 = this.add.image(width * 5 / 8, height * 3 / 8, 'cat1').setAlpha(0).setScale(0.3);
+        const cat2 = this.add.image(width * 5 / 8, height * 3 / 8, 'cat2').setAlpha(0).setScale(0.3);
+        const cat3 = this.add.image(width * 5 / 8, height * 3 / 8, 'cat3').setAlpha(0).setScale(0.3);
 
 
 
