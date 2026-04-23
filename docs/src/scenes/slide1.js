@@ -52,12 +52,12 @@ class Slide1 extends Phaser.Scene {
         this.load.image('flame', 'assets/slide1/flame.png');
         this.load.image('text1', 'assets/slide1/text1.png');
         this.load.image('text2', 'assets/slide1/text2.png');
-        this.load.audio('bgm', 'assets/backgroundmusic.mp3');
+        //   this.load.audio('bgm', 'assets/backgroundmusic.mp3');
         this.load.image('text1_2', 'assets/slide1/phase2/text1.2.png');
         this.load.image('text2_2', 'assets/slide1/phase2/text2.2.png');
         this.load.image('rabbit', 'assets/slide1/phase2/rabbit.png');
         this.load.image('rabbitdog', 'assets/slide1/phase2/rabbitdog.png');
-        
+
     }
 
     create() {
@@ -73,10 +73,10 @@ class Slide1 extends Phaser.Scene {
             const flame = this.add.image(width * 5 / 8, height * 3 / 8, 'flame').setAlpha(0).setScale(0.3);
             const text1 = this.add.image(width * 3 / 4, height * 3 / 4, 'text1').setAlpha(0).setScale(0.5);
             const text2 = this.add.image(width * 3 / 4, height * 3 / 4, 'text2').setAlpha(0).setScale(0.5);
-            const text1_2 = this.add.image(width*3/4, height*3/4, 'text1_2').setAlpha(0).setScale(0.5);
-            const text2_2 = this.add.image(width*3/4, height*3/4, 'text2_2').setAlpha(0).setScale(0.5);
-            const rabbitdog = this.add.image(700, 300, 'rabbitdog').setAlpha(0).setScale(0.5);
-           const rabbit = this.add.image(650, 400, 'rabbit').setAlpha(0).setScale(0.5);
+            const text1_2 = this.add.image(600, 190, 'text1_2').setAlpha(0).setScale(0.6);
+            const text2_2 = this.add.image(width * 3 / 4, height * 3 / 4, 'text2_2').setAlpha(0).setScale(0.65);
+            const rabbitdog = this.add.image(700, 270, 'rabbitdog').setAlpha(0).setScale(0.8);
+            const rabbit = this.add.image(600, 300, 'rabbit').setAlpha(0).setScale(0.8);
 
             this.tweens.chain({
                 tweens: [
@@ -105,43 +105,38 @@ class Slide1 extends Phaser.Scene {
                         alpha: 1,
                         duration: 5000,
                         ease: 'Power2',
-                        onStart: () => {
+                        onComplete: () => {
                             this.tweens.add({
-                                targets: text1,
+                                targets: [text1, text2, dragon, flame],
                                 alpha: 0,
                                 duration: 1000,
                                 ease: 'Power2'
                             })
                         }
+
                     },
                     {
-                        targets: text1_2, 
-                        alpha: 1, 
-                        duration: 5000, 
-                        ease: 'Power2',
-                        onStart: () => {
-                            this.tweens.add({
-                                targets: [text2, dragon, flame],
-                                alpha: 0,
-                                duration: 1000, 
-                                ease: 'Power2'
-                            })
-                        }
+                        targets: text1_2,
+                        alpha: 1,
+                        duration: 2000,
+                        ease: 'Power2'
                     },
                     {
-                    targets: text2_2, 
-                        alpha: 1, 
-                        duration: 5000, 
+                        targets: text2_2,
+                        alpha: 1,
+                        duration: 2000,
                         ease: 'Power2',
-                        onStart: () => {
+                        onComplete: () => {
                             this.tweens.add({
                                 targets: [rabbitdog, rabbit],
                                 alpha: 1,
-                                duration: 1000, 
+                                duration: 2000,
                                 ease: 'Power2'
                             })
                         }
                     }
+
+
                 ]
             });
 
