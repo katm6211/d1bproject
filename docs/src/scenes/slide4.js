@@ -4,7 +4,7 @@ class Slide4 extends Phaser.Scene {
     }
     preload() {
         this.load.setBaseURL('https://katm6211.github.io/d1bproject/');
-        this.load.image('background', 'assets/slide4/border2.png')
+        this.load.image('bg', 'assets/slide4/background.png')
         this.load.image('banner', 'assets/slide4/banner.png');
         this.load.image('continue1', 'assets/slide4/continue.png');
         this.load.image('credits', 'assets/slide4/credits.png');
@@ -67,7 +67,7 @@ class Slide4 extends Phaser.Scene {
 
 
 
-        let bg = this.add.image(0, 0, 'background').setOrigin(0, 0);
+        let bg = this.add.image(0, 0, 'bg').setOrigin(0, 0);
         bg.setDisplaySize(this.sys.game.config.width, this.sys.game.config.height);
         this.cameras.main.setBackgroundColor("#e0dbc7");
         this.cameras.main.fadeIn(2000, 0, 0, 0);
