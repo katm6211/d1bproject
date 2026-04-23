@@ -15,65 +15,54 @@ class Slide4 extends Phaser.Scene {
 
     create() {
         const { width, height } = this.scale;
-        const continue1 = this.add.image(-100, height * 3.8 / 8, 'continue1').setAlpha(0).setScale(0.7);
-        const credits = this.add.image(-100, height * 4.5 / 8, 'credits').setAlpha(0).setScale(0.7);
-        const newgame = this.add.image(-100, height * 4.5 / 8, 'newgame').setAlpha(0).setScale(0.7);
-        const quit = this.add.image(-100, height * 3.8 / 8, 'quit').setAlpha(0).setScale(0.7);
+        let bg = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'bg');
+
+
+        let scaleX = this.cameras.main.width / bg.width;
+        let scaleY = this.cameras.main.height / bg.height;
+
+
+        let scale = Math.max(scaleX, scaleY);
+        bg.setScale(scale).setScrollFactor(0);
+        const newgame = this.add.image(width + 100, height * 3.3 / 8, 'newgame').setAlpha(1).setScale(0.25);
+        const continue1 = this.add.image(width + 100, height * 4 / 8, 'continue1').setAlpha(1).setScale(0.25);
+        const quit = this.add.image(width + 100, height * 4.65 / 8, 'quit').setAlpha(1).setScale(0.20);
+        const credits = this.add.image(width + 100, height * 5.3 / 8, 'credits').setAlpha(1).setScale(0.25);
 
         this.tweens.chain({
             tweens: [
 
                 {
                     targets: newgame,
-                    y: 200,
-                    x: 500,
-                    duration: 10000,
+                    x: 685,
+                    duration: 1000,
                     ease: 'Linear',
                     loop: 0
                 },
                 {
                     targets: continue1,
-                    y: 250,
-                    x: 500,
-                    duration: 10000,
+                    x: 685,
+                    duration: 1000,
                     ease: 'Linear',
                     loop: 0
                 },
                 {
                     targets: quit,
-                    y: 300,
-                    x: 500,
-                    duration: 10000,
+                    x: 685,
+                    duration: 1000,
                     ease: 'Linear',
                     loop: 0
                 },
                 {
                     targets: credits,
-                    y: 350,
-                    x: 500,
-                    duration: 10000,
+                    x: 685,
+                    duration: 1000,
                     ease: 'Linear',
                     loop: 0
                 }
 
             ]
         });
-
-
-
-
-
-
-
-    let bg = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'bg');
-
-
-    let scaleX = this.cameras.main.width / bg.width;
-    let scaleY = this.cameras.main.height / bg.height;
-
-
-    let scale = Math.max(scaleX, scaleY);
-    bg.setScale(scale).setScrollFactor(0);
 
         this.cameras.main.setBackgroundColor("#e0dbc7");
         this.cameras.main.fadeIn(2000, 0, 0, 0);

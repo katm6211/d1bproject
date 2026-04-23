@@ -70,5 +70,8 @@ class Slide3 extends Phaser.Scene {
 
         this.cameras.main.setBackgroundColor("#e0dbc7");
         this.cameras.main.fadeIn(2000, 0, 0, 0);
+        this.cameras.main.once('camerafadeoutcomplete', (camera) => {
+            this.scene.start('Slide4');
+        });
     }
 }

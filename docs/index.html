@@ -4,6 +4,7 @@
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
 </head>
 <body>
+    <script src="src/scenes/slide0.js"></script>
     <script src="src/scenes/titlescene.js"></script>
     <script src="src/scenes/slide1.js"></script>
     <script src="src/scenes/slide2.js"></script>
@@ -15,7 +16,7 @@
         width: 800,
         height: 600,
         backgroundColor: '#000000',
-        scene: [Slide4, Slide3, Slide2, Slide1, TitleScene]
+        scene: [Slide1, Slide0, TitleScene, Slide2, Slide3, Slide4]
     };
 
     const game = new Phaser.Game(config);
