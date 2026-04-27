@@ -3,6 +3,7 @@ class Slide0 extends Phaser.Scene {
         super({ key: "Slide0" });
     }
     preload() {
+        this.cameras.main.setBackgroundColor("#000000");
 
     }
 
@@ -16,5 +17,6 @@ class Slide0 extends Phaser.Scene {
         };
         this.input.keyboard.on('keydown', startGame);
         this.input.on('pointerdown', startGame);
+
     }
 }

@@ -4,6 +4,7 @@ class Slide1 extends Phaser.Scene {
     }
     preload() {
         const { width, height } = this.scale;
+        this.cameras.main.setBackgroundColor("#000000");
         let loadingText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY, 'Loading... 0%', {
             font: '20px Consolas',
             fill: '#ffffff'
@@ -68,7 +69,7 @@ class Slide1 extends Phaser.Scene {
         arthur.setScale(0.35);
 
 
-        this.time.delayedCall(5000, () => {
+        this.time.delayedCall(2000, () => {
             const dragon = this.add.image(800, 0, 'dragon');
             const flame = this.add.image(width * 5 / 8, height * 3 / 8, 'flame').setAlpha(0).setScale(0.3);
             const text1 = this.add.image(width * 3 / 4, height * 3 / 4, 'text1').setAlpha(0).setScale(0.5);
@@ -133,7 +134,11 @@ class Slide1 extends Phaser.Scene {
                         duration: 2000,
                         ease: 'Power2',
                         onComplete: () => {
-                            this.scene.start('Slide2');
+                            this.cameras.main.fadeOut(2000, 224, 219, 199);
+                            this.cameras.main.once('camerafadeoutcomplete', () => {
+                                this.scene.start('Slide2');                                
+                            })
+
                         }
                     }
 
@@ -144,7 +149,9 @@ class Slide1 extends Phaser.Scene {
         }, [], this);
 
         this.cameras.main.setBackgroundColor("#e0dbc7");
-        this.cameras.main.fadeIn(2000, 0, 0, 0);
+        this.cameras.main.fadeIn(2000, 224, 219, 199);
+
+
 
 
         if (!this.game.sound.get('bgm')) {

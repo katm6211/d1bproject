@@ -65,6 +65,6 @@ class Slide4 extends Phaser.Scene {
         });
 
         this.cameras.main.setBackgroundColor("#e0dbc7");
-        this.cameras.main.fadeIn(1000, 0, 0, 0);
+        this.cameras.main.fadeIn(1000, 224, 219, 199);
     }
 }
